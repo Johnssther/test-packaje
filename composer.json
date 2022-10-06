@@ -1,0 +1,18 @@
+{
+    "name": "fhsinchy/inspire",
+    "description": "es un paquete que da citas inspiradoras",
+    "autoload": {
+        "psr-4": {
+            "Fhsinchy\\Inspire\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alejandro Hernández",
+            "email": "j.ahr@hotmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    }
+}
