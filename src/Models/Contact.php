@@ -24,6 +24,7 @@ class Contact extends Model
         'surname',
         'phone',
         'email',
+        'alert',
     ];
 
     /**

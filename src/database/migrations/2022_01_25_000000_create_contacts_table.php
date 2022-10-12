@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('surname');
             $table->string('phone', 30)->nullable();
             $table->string('email')->unique();
+            $table->integer('alert');
             $table->timestamps();
         });
     }
