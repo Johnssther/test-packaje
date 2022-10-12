@@ -13,7 +13,21 @@ class InspirationProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../views', 'inspire');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadViewsFrom(__DIR__ . '/../views', 'inspire');
+
+        //Migrations 
+        $this->registerMigrations();
+    }
+
+    //example-app/my-package/database/migrations
+    /**
+     * Register the package migrations
+     *
+     * @return void
+     */
+    protected function registerMigrations(): void
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }

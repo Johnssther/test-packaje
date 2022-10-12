@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <div class="container mt-4">
-        <div class="alert alert-success" role="alert">
-            {{ $quote }}
-        </div>
-    </div>
+    @include('inspire::header')
+
+    @yield('content')
+
 </body>
 </html>
