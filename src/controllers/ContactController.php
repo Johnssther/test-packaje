@@ -13,6 +13,11 @@ class ContactController
         return "Contactos";
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -21,13 +26,13 @@ class ContactController
         $permitted_chars_alert = '12345';
         $alert = substr(str_shuffle($permitted_chars_alert), 0, 1);
 
-        $contact = new Contact();
-        $contact->name = "john alejandro";
-        $contact->surname = "hernandez rodriguez";
-        $contact->phone = "3124224944";
-        $contact->alert = $alert;
-        $contact->email = $email;
-        $contact->save();
+        // $contact = new Contact();
+        // $contact->name = "john alejandro";
+        // $contact->surname = "hernandez rodriguez";
+        // $contact->phone = "3124224944";
+        // $contact->alert = $alert;
+        // $contact->email = $email;
+        // $contact->save();
 
         $contacts = Contact::orderBy("id", "desc")->get();
         return view('inspire::contacts.index', compact('contacts'));
@@ -37,8 +42,44 @@ class ContactController
 
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('inspire::contacts.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // $data = $request->all();
+        // dd( $data );
+        // $contact = new Contact();
+        // $contact->fillable($data);
+        // $contact->save();
+
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->surname = $request->surname;
+        $contact->phone = $request->phone;
+        $contact->alert = $request->alert;
+        $contact->email = $request->email;
+        $contact->save();
+
+        return redirect()->route('inspire.contacts.index');
+
+    }
+
     public function show($id)
     {
-        dd($id);
+
     }
 }

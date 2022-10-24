@@ -17,6 +17,8 @@
 </style>
 @section('content')
     <div class="container mt-4">
+        <a class="btn btn-sm btn-success" href="{{ route('inspire.contacts.create') }}">Crear Contacto</a>
+
         <table class="table">
             <thead>
               <tr>
