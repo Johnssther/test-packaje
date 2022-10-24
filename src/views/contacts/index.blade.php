@@ -4,9 +4,9 @@
     /* 
     1 azul
     2 verde
-    3 amarillo
-    4 naranja
-    5 rojo
+    3 amarillo - 
+    4 naranja - proximo
+    5 rojo  - urgente
     */
     .bg-1 { background: rgb(134, 134, 241); }
     .bg-2 { background: rgb(131, 248, 131); }
@@ -14,40 +14,35 @@
     .bg-4 { background: orange; }
     .bg-5 { background: rgb(255, 104, 104); }
     
+    .contacts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 </style>
 @section('content')
     <div class="container mt-4">
         <a class="btn btn-sm btn-success" href="{{ route('inspire.contacts.create') }}">Crear Contacto</a>
 
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">CODIGO</th>
-                <th scope="col">NOMBRES</th>
-                <th scope="col">APELLIDOS</th>
-                <th scope="col">TELEFONO</th>
-                <th scope="col">CORREO</th>
-                <th scope="col">ACCION</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($contacts as $item)
-                <tr class="bg-{{ $item->alert }}">
-                    <th scope="row">{{ $item->id }}</th>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->surname }}</td>
-                    <td>{{ $item->phone }}</td>
-                    <td>{{ $item->email }}</td>
-                    @if ( $item->alert == 5 )
-                        <td> <button class="btn btn-sm btn-danger">Urgente</button> </td>
-                    @elseif( $item->alert == 4 ) 
-                        <td> <button class="btn btn-sm" style="background: rgb(214, 131, 29); color: white">Proximo</button> </td>
-                    @else    
-                        <td></td>
-                    @endif
-                  </tr>
-                @endforeach
-            </tbody>
-          </table>
+        <div class="contacts mt-3">
+            @foreach ($contacts as $item)
+                <div class="card">
+                    <div class="card-body bg-{{ $item->alert }}">
+                        <p class="text-bold" style="position: absolute; top:5px; right:5px;">{{ $item->id }}</p>
+                        <h5 class="card-title">{{ $item->name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-white">{{ $item->surname }}</h6>
+                        <p class="card-text">{{ $item->phone }}</p>
+                        <p class="card-text">{{ $item->email }}</p>
+                        @if ( $item->alert == 5 )
+                            <div> <button class="btn btn-sm btn-danger">Urgente</button> </div>
+                        @elseif( $item->alert == 4 ) 
+                            <div> <button class="btn btn-sm" style="background: rgb(214, 131, 29); color: white">Proximo</button> </div>
+                        @else    
+                            <div></div>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection
