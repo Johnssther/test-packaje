@@ -19,6 +19,21 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('inspire.contacts.index') }}">Contactos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark btn btn-sm bg-1 m-1" href="{{ route('inspire.contacts.index', ['filter_alert' => 1]) }}">sin prioridad</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark btn btn-sm bg-2 m-1" href="{{ route('inspire.contacts.index', ['filter_alert' => 2]) }}">normal </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark btn btn-sm bg-3 m-1" href="{{ route('inspire.contacts.index', ['filter_alert' => 3]) }}">en cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark btn btn-sm bg-4 m-1" href="{{ route('inspire.contacts.index', ['filter_alert' => 4]) }}">Proximo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark btn btn-sm bg-5 m-1" href="{{ route('inspire.contacts.index', ['filter_alert' => 5]) }}">Urgente</a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('inspire.inspire') }}">Inspire</a>

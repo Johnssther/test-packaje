@@ -1,18 +1,7 @@
 @extends('inspire::app')
 
 <style>
-    /* 
-    1 azul
-    2 verde
-    3 amarillo - 
-    4 naranja - proximo
-    5 rojo  - urgente
-    */
-    .bg-1 { background: rgb(134, 134, 241); }
-    .bg-2 { background: rgb(131, 248, 131); }
-    .bg-3 { background: yellow; }
-    .bg-4 { background: orange; }
-    .bg-5 { background: rgb(255, 104, 104); }
+
     
     .contacts {
         display: grid;

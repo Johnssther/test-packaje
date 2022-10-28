@@ -34,7 +34,12 @@ class ContactController
         // $contact->email = $email;
         // $contact->save();
 
-        $contacts = Contact::orderBy("id", "desc")->get();
+        $query = Contact::query();
+        $query->get();
+        if($request->filled('filter_alert')) {
+            $query->where('alert', $request->filter_alert);
+        }
+        $contacts = $query->get();
         return view('inspire::contacts.index', compact('contacts'));
 
         return response()->json(["success" => true, 'data' => $contacts]);
