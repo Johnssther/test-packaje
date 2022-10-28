@@ -35,7 +35,7 @@ class ContactController
         // $contact->save();
 
         $query = Contact::query();
-        $query->get();
+        $query->orderBy('id', 'desc');
         if($request->filled('filter_alert')) {
             $query->where('alert', $request->filter_alert);
         }
@@ -85,6 +85,7 @@ class ContactController
 
     public function show($id)
     {
-
+        $contact = Contact::find($id);
+        return view('inspire::contacts.show', compact('contact'));
     }
 }

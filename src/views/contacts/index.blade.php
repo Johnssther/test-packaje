@@ -22,13 +22,25 @@
                         <h6 class="card-subtitle mb-2 text-muted text-white">{{ $item->surname }}</h6>
                         <p class="card-text">{{ $item->phone }}</p>
                         <p class="card-text">{{ $item->email }}</p>
-                        @if ( $item->alert == 5 )
-                            <div> <button class="btn btn-sm btn-danger">Urgente</button> </div>
-                        @elseif( $item->alert == 4 ) 
-                            <div> <button class="btn btn-sm" style="background: rgb(214, 131, 29); color: white">Proximo</button> </div>
-                        @else    
-                            <div></div>
-                        @endif
+                        @php
+                            $class = '';
+                            if($item->alert == 1) {
+                                $class = 'bg-11';
+                            }
+                            if($item->alert == 2) {
+                                $class = 'bg-22';
+                            }
+                            if($item->alert == 3) {
+                                $class = 'bg-33';
+                            }
+                            if($item->alert == 4) {
+                                $class = 'bg-44';
+                            }
+                            if($item->alert == 5) {
+                                $class = 'bg-55';
+                            }
+                        @endphp
+                        <div> <a class="btn btn-sm {{ $class }}" href="{{ route('inspire.contacts.show', ['contact' => $item->id]) }}">Contactar</a> </div>
                     </div>
                 </div>
             @endforeach

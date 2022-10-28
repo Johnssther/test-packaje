@@ -20,6 +20,12 @@
     .bg-3 { background: yellow; }
     .bg-4 { background: orange; }
     .bg-5 { background: rgb(255, 104, 104); }
+
+    .bg-11 { background: rgb(114, 114, 185); color: #ffffff }
+    .bg-22 { background: rgb(38, 178, 38); color: #ffffff }
+    .bg-33 { background: rgb(138, 138, 21); color: #ffffff }
+    .bg-44 { background: rgb(186, 113, 25);  color: #ffffff }
+    .bg-55 { background: rgb(190, 90, 90); color: #ffffff }
     </style>
 </head>
 
